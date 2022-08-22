@@ -1,0 +1,32 @@
+
+.icon-web {
+    width: 50px;
+    height: 50px;
+}
+
+#navbarSupportedContent {
+    
+}
+
+#items-nav-bar {
+    margin: auto;
+}
+
+#items-nav-bar a {
+    color: #ffffff;
+}
+
+#nav-bar {
+    background-color: #1282a2;
+    color: #ffffff;
+}
+
+#form-id {
+    width: 30%;
+    height: 40px;
+}
+
+.search-icon {
+    width: 45px;
+    height: 45px;
+}
