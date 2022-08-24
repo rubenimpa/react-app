@@ -30,3 +30,15 @@
     width: 45px;
     height: 45px;
 }
+
+.shop-cart {
+    background-image: url('../images/cart-shop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+.label-count {
+    margin: auto;
+}
