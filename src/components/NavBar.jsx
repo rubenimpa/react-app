@@ -1,6 +1,5 @@
 import './NavBar.css';
 import searchIcon from '../images/search-icon.png';
-import cartShopIcon from '../images/cart-shop.png';
 
 function NavBar() {
   return (

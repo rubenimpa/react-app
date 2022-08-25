@@ -1,0 +1,18 @@
+
+.titulo-catalogo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.catalogo-item {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+
+.catalogo-item img {
+    height: 400px;
+    width: 300px;
+}
