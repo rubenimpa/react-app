@@ -1,6 +1,7 @@
 import './App.css';
-import NavBar from './NavBar';
-import ItemListContainer from './ItemListContainer';
+import NavBar from './navbar/NavBar';
+import ItemListContainer from './itemlistcontainer/ItemListContainer';
+import CartModal from './cartmodal/CartModal';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
     <div>
       <NavBar/>
       <ItemListContainer greeting="Catálogo"/>
+      <CartModal/>
     </div>
 
   );

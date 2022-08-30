@@ -1,5 +1,5 @@
 import './NavBar.css';
-import searchIcon from '../images/search-icon.png';
+import searchIcon from '../../images/search-icon.png';
 
 function NavBar() {
   return (
@@ -40,6 +40,7 @@ function NavBar() {
         {/**button className="btn btn-outline-success" type="submit">Search</button> */}
         <a href="#"><img className="search-icon" src={searchIcon} /></a>
         <div className="shop-cart">
+            <button id="cart-button" type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
             <p className="label-count">1</p>
         </div>
         {/** <a href="#"><img className="search-icon" src={cartShopIcon} /></a> */}

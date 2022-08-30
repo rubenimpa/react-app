@@ -1,7 +1,7 @@
 import './ItemListContainer.css';
-import catalogoImg1 from '../images/saint-seiya-1.jpeg';
-import catalogoImg2 from '../images/saint-seiya-2.jpeg';
-import catalogoImg3 from '../images/saint-seiya-3.jpeg';
+import catalogoImg1 from '../../images/saint-seiya-1.jpeg';
+import catalogoImg2 from '../../images/saint-seiya-2.jpeg';
+import catalogoImg3 from '../../images/saint-seiya-3.jpeg';
 
 
 const ItemListContainer = ({greeting}) => {

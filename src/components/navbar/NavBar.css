@@ -32,13 +32,35 @@
 }
 
 .shop-cart {
-    background-image: url('../images/cart-shop.png');
+    background-image: url('../../images/cart-shop.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 50px;
     height: 50px;
 }
 
+.shop-cart button {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-color: transparent;
+}
+.shop-cart button:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.shop-cart button:focus {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 .label-count {
+    margin-top: -50px;
     margin-left: 15px;
+}
+
+.buttons-cart {
+    margin-top: auto;
+    margin-bottom: auto;
 }
