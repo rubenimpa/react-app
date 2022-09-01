@@ -1,9 +1,9 @@
-.modal-row {
+
+
+.buttons-cart {
     display: flex;
-    justify-content: space-between;
-    width: 80%;
 }
 
-.modal-row p {
-    margin-top: auto;
+#button-add-shop {
+    margin-right: 10px;
 }

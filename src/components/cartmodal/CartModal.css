@@ -22,3 +22,15 @@
     width: 55px;
     height: 65px;
 }
+
+.modal-row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.modal-row p {
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

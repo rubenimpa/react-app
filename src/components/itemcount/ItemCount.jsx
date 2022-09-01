@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import './ItemCount.css';
-import catalogoImg1 from '../../images/saint-seiya-1.jpeg';
 
 const ItemCount = ({stock, initial}) => {
 
@@ -21,17 +20,12 @@ const ItemCount = ({stock, initial}) => {
     }
 
     return (
-  
-        <div className="modal-row">
-            <img src={catalogoImg1} alt="" />
-            <p>Saint Seiya 1</p>
+        <div className="buttons-cart">
+            <button className="btn btn-primary" onClick={sumCantidad} id="button-add-shop">+</button>
             <p>{cantidad}</p>
-            <div className="buttons-cart">
-                <button className="btn btn-primary" onClick={sumCantidad}>+</button>
-                <button className="btn btn-primary" onClick={resCantidad}>-</button>
-            </div>
+            <button className="btn btn-primary" onClick={resCantidad}>-</button>
         </div>
-  
+
     );
 }
 

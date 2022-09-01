@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './CartModal.css';
 import ItemCount from '../itemcount/ItemCount';
+import catalogoImg1 from '../../images/saint-seiya-1.jpeg';
 
 const CartModal = () => {
 
@@ -17,7 +18,11 @@ const CartModal = () => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="shop-close"></button>
             </div>
             <div className="modal-body">
-                <ItemCount stock={3} initial={1}/>
+                <div className="modal-row">
+                    <img src={catalogoImg1} alt="" />
+                    <p>Saint Seiya 1</p>
+                    <ItemCount stock={3} initial={1}/>
+                </div>
             </div>
             <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" disabled>Comprar</button>
