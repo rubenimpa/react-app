@@ -6,8 +6,8 @@ const Item = ({item}) => {
 
         <div className="catalogo-item">
             <img src={item.image} alt="" />
-            <p>${item.precio}</p>
-            <p>En stock: {item.precio}</p>
+            <p>${item.price}</p>
+            <p>En stock: {item.stock}</p>
         </div>
 
     );

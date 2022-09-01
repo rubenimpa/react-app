@@ -6,9 +6,9 @@ import ItemList from '../itemlist/ItemList';
 import { useEffect, useState } from 'react';
 
 const productos = [
-    {image: catalogoImg1, price: 1200, stock: 3},
-    {image: catalogoImg2, price: 1200, stock: 2},
-    {image: catalogoImg3, price: 1200, stock: 5}
+    {image: "../../images/saint-seiya-1.jpeg", price: 1200, stock: 3},
+    {image: "../../images/saint-seiya-3.jpeg", price: 1200, stock: 2},
+    {image: "../../images/saint-seiya-3.jpeg", price: 1200, stock: 5}
 ];
 
 function consultarPromesa(confirmacion) {
