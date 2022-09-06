@@ -1,0 +1,9 @@
+.item-detail-second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    width: 30%;
+    margin-left: 30px;
+}
+

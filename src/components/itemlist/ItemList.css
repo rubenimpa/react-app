@@ -1,6 +1,23 @@
+.catalogo-item img {
+    height: 380px;
+    width: 280px;
+    align-content: center;
+}
+
+.catalogo-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: solid 1px #1282a2;
+    color: #ffffff;
+    background-color: #1282a2;
+    margin: 10px;
+}
+
 .catalogo-list {
     display: flex;
     justify-content: space-around;
-    width: 80%;
+    width: 70%;
     margin: auto;
+    flex-wrap: wrap;
 }

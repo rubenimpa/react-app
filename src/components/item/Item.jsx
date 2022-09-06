@@ -4,11 +4,12 @@ const Item = ({item}) => {
 
     return (
 
-        <div className="catalogo-item">
+        <>
             <img src={item.image} alt="" />
+            <h5 className="titulo-item">{item.titulo}</h5>
             <p>${item.price}</p>
             <p>En stock: {item.stock}</p>
-        </div>
+        </>
 
     );
 }

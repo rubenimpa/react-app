@@ -7,18 +7,16 @@ const ItemList = ({items}) => {
     const [catalogo, setCatalogo] = useState([]);
 
     useEffect(() => {
-        const itemJsx = items.map((producto, indice) => {
-            console.log(producto);
-            <div className="catalogo-list" key={indice}>
+        const itemJsx = items.map((producto, indice) => 
+            <div className="catalogo-item" key={indice}>
                 <Item item={producto}/>
             </div>
-        });
+        );
         setCatalogo(itemJsx);
     }, []);
-    
 
     return (
-        <div>
+        <div className="catalogo-list">
             {catalogo}
         </div>
     );
