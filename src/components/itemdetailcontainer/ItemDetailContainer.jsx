@@ -2,11 +2,14 @@ import './ItemDetailContainer.css';
 import catalogoImg1 from '../../images/saint-seiya-1.jpeg';
 import { useEffect, useState } from 'react';
 import ItemDetail from '../itemdetail/ItemDetail';
+import { useParams } from 'react-router-dom';
 
 
-const ItemDetailContainer = ({greeting}) => {
+const ItemDetailContainer = () => {
 
   const [dataDetail, setDataDetail] = useState({});
+  const {id} = useParams();
+  
 
   useEffect(() => {
     fetch("./details.json", {
@@ -18,7 +21,7 @@ const ItemDetailContainer = ({greeting}) => {
     .then(response => response.json())
     .then((data) => {
         console.log(data);
-        setDataDetail(data[0]);
+        setDataDetail(data.find(producto => producto.id == id));
     })
   },[]);
 
