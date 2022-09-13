@@ -5,6 +5,7 @@ import CartModal from './cartmodal/CartModal';
 import Home from './home/Home';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './itemdetailcontainer/ItemDetailContainer';
+import Cart from './cartmodal/Cart';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
           <Route path="/ofertas"></Route>
           <Route path="/contacto"></Route>
+          <Route path="/cart/:cantidad" element={<Cart/>}></Route>
         </Routes>
       </BrowserRouter>
       <CartModal/>

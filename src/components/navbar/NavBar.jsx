@@ -23,11 +23,11 @@ function NavBar() {
             Catálogo
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Ivrea</a></li>
-            <li><a className="dropdown-item" href="#">Ovni Manga</a></li>
-            <li><a className="dropdown-item" href="#">Panini</a></li>
+            <li><Link to={`/catalogo/1`} className="link-detail">Ivrea</Link></li>
+            <li><Link to={`/catalogo/2`} className="link-detail">Ovni Manga</Link></li>
+            <li><Link to={`/catalogo/3`} className="link-detail">Panini</Link></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item" href="#">Importados</a></li>
+            <li><Link to={`/catalogo/4`} className="link-detail">Importados</Link></li>
           </ul>
         </li>
         <li className="nav-item">

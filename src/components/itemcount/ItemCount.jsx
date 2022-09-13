@@ -2,20 +2,24 @@
 import { useState } from 'react';
 import './ItemCount.css';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, onAdd, initial}) => {
 
 
     const [cantidad, setCantidad] = useState(initial);
 
     const sumCantidad = () => {
         if (cantidad < stock) {
-            setCantidad(cantidad + 1);
+            const cantidadModificada = cantidad + 1;
+            setCantidad(cantidadModificada);
+            onAdd(cantidadModificada);
         }
     }
 
     const resCantidad = () => {
         if (cantidad > initial) {
-            setCantidad(cantidad - 1);
+            const cantidadModificada = cantidad - 1;
+            setCantidad(cantidadModificada);
+            onAdd(cantidadModificada);
         }
     }
 
