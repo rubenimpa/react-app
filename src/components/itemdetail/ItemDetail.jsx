@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../cartcontext/CartContext';
 import Cart from '../cartmodal/Cart';
 import ItemCount from '../itemcount/ItemCount';
 import './ItemDetail.css';
@@ -7,10 +8,21 @@ import './ItemDetail.css';
 const ItemDetail = ({item}) => {
 
     const [cantidad, setCantidad] = useState(1);
+    const {products, agregarProducto} = useContext(CartContext);
 
     function optionSelected(value) {
-        console.log(value);
         setCantidad(value);
+    }
+
+    const agregarCarrito = () => {
+
+        //se evita agregar 2 veces el mismo producto
+        if (products.find(producto => producto.titulo === item.titulo) === undefined) {
+            const producto = {titulo: item.titulo, precio: item.price, cantidad: cantidad};
+            agregarProducto(producto);
+            console.log(products);
+        }
+
     }
 
     return (
@@ -25,7 +37,7 @@ const ItemDetail = ({item}) => {
                 <p>${item.price}</p>
                 <p>En stock: {item.stock}</p>
                 <ItemCount disabled stock={3} onAdd={optionSelected} initial={1}/>
-                <Link to={`/cart/${cantidad}`}><button id="button-compra-detail" type="button" className="btn btn-primary">Comprar</button></Link>
+                <Link to={`/cart`}><button onClick={() => agregarCarrito()} id="button-compra-detail" type="button" className="btn btn-primary">Comprar</button></Link>
             </div>
         </>
 

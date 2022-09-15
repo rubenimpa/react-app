@@ -23,7 +23,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
           <Route path="/ofertas"></Route>
           <Route path="/contacto"></Route>
-          <Route path="/cart/:cantidad" element={<Cart/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
         </Routes>
       </BrowserRouter>
       <CartModal/>
