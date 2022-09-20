@@ -42,7 +42,7 @@ function NavBar() {
         {/**button className="btn btn-outline-success" type="submit">Search</button> */}
         <a href="#"><img className="search-icon" src={searchIcon} /></a>
         <div className="shop-cart">
-            <button id="cart-button" type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+        <Link to={`/cartmodal`}><button id="cart-button" type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"/></Link>
             <p className="label-count">1</p>
         </div>
         {/** <a href="#"><img className="search-icon" src={cartShopIcon} /></a> */}

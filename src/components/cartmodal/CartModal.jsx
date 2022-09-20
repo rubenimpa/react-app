@@ -1,15 +1,32 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './CartModal.css';
-import ItemCount from '../itemcount/ItemCount';
-import catalogoImg1 from '../../images/saint-seiya-1.jpeg';
+import { CartContext } from '../cartcontext/CartContext';
 
 const CartModal = () => {
 
-  const [cantidad, setCantidad] = useState(0);
+  const[carrito, setCarrito] = useState([]);
+  const[precioTotal, setPrecioTotal] = useState(0);
+  const {products} = useContext(CartContext);
+
+  useEffect(() => {
+    const carritoJsx = products.map((producto, indice) => 
+                <div key={indice} className="modal-row">
+                    <p>Titulo: {producto.titulo}, Precio: {producto.precio}, Cantidad: {producto.cantidad}</p>
+                </div>
+    );
+    setCarrito(carritoJsx);
+
+    const precioSum = products.reduce((total , product) => total = total + product.precio, 0);
+    if (precioSum != 0) {
+        setPrecioTotal(<div>Total: {precioSum}</div>);
+    } else {
+        setPrecioTotal("");
+    }
+  }, []);
 
   return (
 
-    <div>
+    <>
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog" id="shop-modal">
             <div className="modal-content">
@@ -18,19 +35,16 @@ const CartModal = () => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="shop-close"></button>
             </div>
             <div className="modal-body">
-                <div className="modal-row">
-                    <img src={catalogoImg1} alt="" />
-                    <p>Saint Seiya 1</p>
-                    <ItemCount stock={3} initial={1}/>
-                </div>
+                {carrito}
             </div>
+            {precioTotal}
             <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" disabled>Comprar</button>
             </div>
             </div>
         </div>
         </div>
-    </div>
+    </>
 
   );
 }

@@ -8,20 +8,19 @@ const CartProvider = (props) => {
     const[products, setProducts] = useState([]);
 
     const agregarProducto = (producto) => {
-        products.push(producto);
-        setProducts(products);
+        setProducts([...products, producto]);
     }
 
     const borrarProducto = (producto) => {
-
+        setProducts(products.filter(prod => prod.id != producto.id));
     }
 
     const clear = () => {
-
+        setProducts([]);
     }
 
     const isInCart = (idProducto) => {
-
+        return !(products.find(producto => producto.id === idProducto) === undefined);
     }
 
     return (

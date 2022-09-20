@@ -20,7 +20,6 @@ const ItemDetail = ({item}) => {
         if (products.find(producto => producto.titulo === item.titulo) === undefined) {
             const producto = {titulo: item.titulo, precio: item.price, cantidad: cantidad};
             agregarProducto(producto);
-            console.log(products);
         }
 
     }

@@ -14,15 +14,14 @@ import catalogoImg12 from '../../images/is-1-planeta.jpeg';
 import catalogoImg13 from '../../images/is-6-planeta.jpeg';
 
 import ItemList from '../itemlist/ItemList';
-import ItemDetailContainer from '../itemdetailcontainer/ItemDetailContainer';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = ({greeting}) => {
 
-    const [catalogo, setCatalogo] = useState([]);
     const {id} = useParams();
+    const [productosCatalogo, setProductosCatalogo] = useState([]);
 
     const productos = [
         {id: 1, idCatalogo: 1, image: catalogoImg1, titulo: "Saint Seiya 1", price: 1200, stock: 3},
@@ -50,22 +49,22 @@ const ItemListContainer = ({greeting}) => {
         });
     }
 
-    const getProductos = () => {
+    useEffect(() => {
 
-        if (id === undefined) {
-            return productos;
-        } 
+            if (id === undefined) {
+                setProductosCatalogo(<ItemList items={productos}/>);
+            } else {
+                setProductosCatalogo(<ItemList items={productos.filter(producto => producto.idCatalogo == id)}/>);
+            }
 
-        const productosCatalogo = productos.filter(producto => producto.idCatalogo == id);
-        return productosCatalogo;
-    }
+    }, []);
 
   return (
 
-    <div>
+    <>
         <h1 className="titulo-catalogo">{greeting}</h1>
-        <ItemList items={getProductos()}/>
-    </div>
+        {productosCatalogo}
+    </>
 
   );
 }

@@ -2,7 +2,6 @@ import './App.css';
 import NavBar from './navbar/NavBar';
 import ItemListContainer from './itemlistcontainer/ItemListContainer';
 import CartModal from './cartmodal/CartModal';
-import Home from './home/Home';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './itemdetailcontainer/ItemDetailContainer';
 import Cart from './cartmodal/Cart';
@@ -24,9 +23,11 @@ function App() {
           <Route path="/ofertas"></Route>
           <Route path="/contacto"></Route>
           <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="/cartmodal" element={<CartModal/>}></Route>
         </Routes>
+        <CartModal/>
       </BrowserRouter>
-      <CartModal/>
+      
     </>
 
   );
