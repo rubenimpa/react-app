@@ -18,7 +18,7 @@ const ItemDetail = ({item}) => {
 
         //se evita agregar 2 veces el mismo producto
         if (products.find(producto => producto.titulo === item.titulo) === undefined) {
-            const producto = {titulo: item.titulo, precio: item.price, cantidad: cantidad};
+            const producto = {id: item.id, titulo: item.titulo, precio: item.price, cantidad: cantidad};
             agregarProducto(producto);
         }
 

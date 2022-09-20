@@ -12,7 +12,8 @@ const CartProvider = (props) => {
     }
 
     const borrarProducto = (producto) => {
-        setProducts(products.filter(prod => prod.id != producto.id));
+        console.log(producto);
+        setProducts(products.filter(prod => prod.id !== producto.id));
     }
 
     const clear = () => {
@@ -26,7 +27,7 @@ const CartProvider = (props) => {
     return (
 
         <>
-          <CartContext.Provider value={{products,agregarProducto}}>
+          <CartContext.Provider value={{products,agregarProducto, borrarProducto}}>
             {props.children}
           </CartContext.Provider>
         </>

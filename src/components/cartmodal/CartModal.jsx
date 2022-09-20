@@ -6,12 +6,17 @@ const CartModal = () => {
 
   const[carrito, setCarrito] = useState([]);
   const[precioTotal, setPrecioTotal] = useState(0);
-  const {products} = useContext(CartContext);
+  const {products, borrarProducto} = useContext(CartContext);
+
+  const borrarFila = (producto) => {
+    borrarProducto(producto);
+  }
 
   useEffect(() => {
     const carritoJsx = products.map((producto, indice) => 
                 <div key={indice} className="modal-row">
                     <p>Titulo: {producto.titulo}, Precio: {producto.precio}, Cantidad: {producto.cantidad}</p>
+                    <button onClick={() => borrarFila(producto)}>Borrar</button>
                 </div>
     );
     setCarrito(carritoJsx);
