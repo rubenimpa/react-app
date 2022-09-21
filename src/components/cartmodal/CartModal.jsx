@@ -1,26 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import './CartModal.css';
 import { CartContext } from '../cartcontext/CartContext';
+import CartRow from '../cartrow/CartRow';
 
 const CartModal = () => {
 
-  const[carrito, setCarrito] = useState([]);
   const[precioTotal, setPrecioTotal] = useState(0);
   const {products, borrarProducto} = useContext(CartContext);
 
-  const borrarFila = (producto) => {
-    borrarProducto(producto);
-  }
-
   useEffect(() => {
-    const carritoJsx = products.map((producto, indice) => 
-                <div key={indice} className="modal-row">
-                    <p>Titulo: {producto.titulo}, Precio: {producto.precio}, Cantidad: {producto.cantidad}</p>
-                    <button onClick={() => borrarFila(producto)}>Borrar</button>
-                </div>
-    );
-    setCarrito(carritoJsx);
-
     const precioSum = products.reduce((total , product) => total = total + product.precio, 0);
     if (precioSum != 0) {
         setPrecioTotal(<div>Total: {precioSum}</div>);
@@ -40,7 +28,11 @@ const CartModal = () => {
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id="shop-close"></button>
             </div>
             <div className="modal-body">
-                {carrito}
+                {
+                products.map((producto, indice) => 
+                    <CartRow indice={indice} producto={producto}/>
+                )
+                }
             </div>
             {precioTotal}
             <div className="modal-footer">
