@@ -16,14 +16,23 @@ import catalogoImg13 from '../../images/is-6-planeta.jpeg';
 import ItemList from '../itemlist/ItemList';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { getProductos } from '../../firebase/firebase.js';
 
 const ItemListContainer = ({greeting}) => {
 
     const {id} = useParams();
     const [productosCatalogo, setProductosCatalogo] = useState([]);
+    const [productos, setProductos] = useState([]);
 
-    const productos = [
+    async function consultarDB() {
+        const productos = await getProductos();
+        setProductos(productos);
+    }
+    useEffect(() => {
+        consultarDB()
+    }, []);
+
+    /*const productos = [
         {id: 1, idCatalogo: 1, image: catalogoImg1, titulo: "Saint Seiya 1", price: 1200, stock: 3},
         {id: 2, idCatalogo: 1, image: catalogoImg2, titulo: "Saint Seiya 2", price: 1300, stock: 2},
         {id: 3, idCatalogo: 1, image: catalogoImg3, titulo: "Saint Seiya 3", price: 1400, stock: 5},
@@ -37,7 +46,7 @@ const ItemListContainer = ({greeting}) => {
         {id: 11, idCatalogo: 3, image: catalogoImg11, titulo: "Naruto 22", price: 1400, stock: 5},
         {id: 12, idCatalogo: 4, image: catalogoImg12, titulo: "I''s 1", price: 1500, stock: 1},
         {id: 13, idCatalogo: 4, image: catalogoImg13, titulo: "I''s 6", price: 1200, stock: 3}
-    ];
+    ];*/
 
     function consultarPromesa(confirmacion) {
         return new Promise((res, rej) => {
