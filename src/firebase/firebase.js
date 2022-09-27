@@ -46,11 +46,11 @@ const getProductos = async () => {
   return productos
 }
 
-const sendOrder = () => {
+const sendOrder = (user, products, priceTotal) => {
   const order = {
-    buyer: {name: "Ruben", phone: "1234", mail: "ruben@gmail.com"},
-    items: [{name: "Saint Seiya 1", price: 1200}],
-    total: 1200
+    buyer: {name: user.name, phone: user.phone, mail: user.mail},
+    items: products,
+    total: priceTotal
   };
 
   const db = getFirestore();
