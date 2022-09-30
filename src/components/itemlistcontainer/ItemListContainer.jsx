@@ -22,50 +22,20 @@ const ItemListContainer = ({greeting}) => {
 
     const {id} = useParams();
     const [productosCatalogo, setProductosCatalogo] = useState([]);
-    const [productos, setProductos] = useState([]);
 
-    async function consultarDB() {
+    async function consultarProductos() {
         const productos = await getProductos();
-        setProductos(productos);
-    }
-    useEffect(() => {
-        consultarDB()
-    }, []);
-
-    /*const productos = [
-        {id: 1, idCatalogo: 1, image: catalogoImg1, titulo: "Saint Seiya 1", price: 1200, stock: 3},
-        {id: 2, idCatalogo: 1, image: catalogoImg2, titulo: "Saint Seiya 2", price: 1300, stock: 2},
-        {id: 3, idCatalogo: 1, image: catalogoImg3, titulo: "Saint Seiya 3", price: 1400, stock: 5},
-        {id: 4, idCatalogo: 1, image: catalogoImg4, titulo: "Saint Seiya 4", price: 1500, stock: 1},
-        {id: 5, idCatalogo: 2, image: catalogoImg5, titulo: "Atack On Titan 1", price: 1200, stock: 3},
-        {id: 6, idCatalogo: 2, image: catalogoImg6, titulo: "Atack On Titan 2", price: 1300, stock: 2},
-        {id: 7, idCatalogo: 3, image: catalogoImg7, titulo: "Naruto 2", price: 1400, stock: 5},
-        {id: 8, idCatalogo: 3, image: catalogoImg8, titulo: "Naruto 4", price: 1500, stock: 1},
-        {id: 9, idCatalogo: 3, image: catalogoImg9, titulo: "Naruto 8", price: 1200, stock: 3},
-        {id: 10, idCatalogo: 3, image: catalogoImg10, titulo: "Naruto 11", price: 1300, stock: 2},
-        {id: 11, idCatalogo: 3, image: catalogoImg11, titulo: "Naruto 22", price: 1400, stock: 5},
-        {id: 12, idCatalogo: 4, image: catalogoImg12, titulo: "I''s 1", price: 1500, stock: 1},
-        {id: 13, idCatalogo: 4, image: catalogoImg13, titulo: "I''s 6", price: 1200, stock: 3}
-    ];*/
-
-    function consultarPromesa(confirmacion) {
-        return new Promise((res, rej) => {
-            if (confirmacion) {
-                res(productos);
-            } else {
-                rej("Acceso denegado");
-            }
-        });
+        const items = productos.docs.map(producto => producto.data());
+        
+        if (id === undefined) {
+            setProductosCatalogo(<ItemList items={items}/>);
+        } else {
+            setProductosCatalogo(<ItemList items={items.filter(producto => producto.idCatalogo == id)}/>);
+        }        
     }
 
     useEffect(() => {
-
-            if (id === undefined) {
-                setProductosCatalogo(<ItemList items={productos}/>);
-            } else {
-                setProductosCatalogo(<ItemList items={productos.filter(producto => producto.idCatalogo == id)}/>);
-            }
-
+        consultarProductos();
     }, []);
 
   return (

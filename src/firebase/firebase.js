@@ -29,6 +29,7 @@ async function cargarBaseDeDatos  () {
             id: producto.id,
             idCatalogo: producto.idCatalogo,
             image: producto.image,
+            descripcion: producto.descripcion,
             titulo: producto.titulo,
             price: producto.price,
             stock: producto.stock,
@@ -46,7 +47,7 @@ const getProductos = async () => {
   return productos
 }
 
-const sendOrder = (user, products, priceTotal) => {
+/*const sendOrder = (user, products, priceTotal) => {
   const order = {
     buyer: {name: user.name, phone: user.phone, mail: user.mail},
     items: products,
@@ -56,6 +57,6 @@ const sendOrder = (user, products, priceTotal) => {
   const db = getFirestore();
   const ordersCollection = collection(db, "orders");
   addDoc(ordersCollection, order).then(({id}) => setOrderId(id));
-}
+}*/
 
 export {db,app, cargarBaseDeDatos, getProducto, getProductos}
