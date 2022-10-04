@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import './CartModal.css';
 import { CartContext } from '../cartcontext/CartContext';
 import CartRow from '../cartrow/CartRow';
+import { sendOrder } from '../../firebase/firebase.js';
 
 const CartModal = () => {
 
@@ -9,13 +10,20 @@ const CartModal = () => {
   const {products, borrarProducto} = useContext(CartContext);
 
   useEffect(() => {
-    const precioSum = products.reduce((total , product) => total = total + product.precio, 0);
-    if (precioSum != 0) {
+    const precioSum = products.reduce((total , product) => total = total + product.precio*product.cantidad, 0);
+    console.log(products);
+    if (precioSum !== 0) {
         setPrecioTotal(<div>Total: {precioSum}</div>);
     } else {
         setPrecioTotal("");
     }
   }, []);
+
+  const createOrder = () => {
+    const user = {name: "Ruben", phone: "0111151212", mail: "ruben@gmail.com"};
+    const items = products.map((product) => product);
+    sendOrder(user, items, products.reduce((total , product) => total =  total + product.precio*product.cantidad, 0)); 
+  }
 
   return (
 
@@ -36,7 +44,7 @@ const CartModal = () => {
             </div>
             {precioTotal}
             <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" disabled>Comprar</button>
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={() => createOrder()}>Comprar</button>
             </div>
             </div>
         </div>

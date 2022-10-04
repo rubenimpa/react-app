@@ -7,8 +7,8 @@ const ItemList = ({items}) => {
     const [catalogo, setCatalogo] = useState([]);
 
     useEffect(() => {
-        const itemJsx = items.map((producto, indice) => 
-            <div className="catalogo-item" key={indice}>
+        const itemJsx = items.map((producto) => 
+            <div className="catalogo-item" key={producto.id}>
                 <Item item={producto}/>
             </div>
         );
