@@ -36,7 +36,7 @@ const ItemDetail = ({item}) => {
                 <p>${item.price}</p>
                 <p>En stock: {item.stock}</p>
                 <ItemCount disabled stock={3} onAdd={optionSelected} initial={1}/>
-                <Link to={`/cart`}><button onClick={() => agregarCarrito()} id="button-compra-detail" type="button" className="btn btn-primary">Comprar</button></Link>
+                <Link to={`/cartmodal`}><button onClick={() => agregarCarrito()} id="cart-button" type="button" className="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Comprar</button></Link>
             </div>
         </>
 

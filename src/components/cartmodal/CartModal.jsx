@@ -11,7 +11,6 @@ const CartModal = () => {
 
   useEffect(() => {
     const precioSum = products.reduce((total , product) => total = total + product.precio*product.cantidad, 0);
-    console.log(products);
     if (precioSum !== 0) {
         setPrecioTotal(<div>Total: {precioSum}</div>);
     } else {

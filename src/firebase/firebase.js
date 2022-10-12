@@ -54,7 +54,6 @@ const sendOrder = (user, products, priceTotal) => {
     total: priceTotal
   };
 
-  console.log(order);
   const db = getFirestore();
   const ordersCollection = collection(db, "orders");
   addDoc(ordersCollection, order).then(({id}) => id);
